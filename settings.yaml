@@ -1,0 +1,26 @@
+project_path: /home/dawoodahmed/WSU/Research/Semester 1/Tree Skeletonization/single_frame_skeletonization
+model_path: ai/weights/best.pt
+data_path: data
+input_file: outdoor_3ft.mkv
+input_image_folder: sensor_images
+image_segmentation_output_path: segmentation_images
+
+# 0 refers to azure depth camera. 1 refers to realsense depth camera
+current_sensor: 0
+class_colors: { 'trunk': [ 0, 0, 1 ], 'branch': [ 0, 1, 0 ] }
+distance_threshold: 2000
+
+
+segmentation:
+  min_trunk_height: 1
+  voxel_size: 0.008
+  dbscan_eps: 0.3
+  dbscan_min_samples: 5
+  min_branch_width: 0.1
+  min_branch_trunk_distance: 0.08
+
+fitting:
+  plane_width: 0.01
+  plane_length: 0.01
+  trunk_geometric_cluster: 10
+  branch_geometric_cluster: 3
