@@ -70,6 +70,11 @@ class AzureController:
                         elif class_ids[i] == 1:
                             branch_pc.append(pc)
                 segmented_tree = self.segmentation_controller.process(trunk_pc, branch_pc)
+                left = []
+                left.append(segmented_tree['trunk'])
+                left.extend(segmented_tree['left_branches'])
+                left.extend(segmented_tree['right_branches'])
+                visualize_multiple_pc(left)
                 # self.tree_segmentation.association_algorithm(trunk_pc, branch_pc)
                 count += 1
             except EOFError:
